@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Literata|Open+Sans&display=swap');
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+html, body, h1, footer {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Literata', serif;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+nav li {
+  /*cursor: pointer;*/
+  margin: 0 20px;
+  padding: 10px;
+}
+
+.hero-image {
+  background-image: url('hero-image.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+  width: 100%;
+}
+
+.intro {
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.intro p {
+  font-size: 18px;
+  margin: 2px 0;
+}
