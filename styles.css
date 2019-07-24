@@ -25,9 +25,17 @@ nav ul {
 }
 
 nav li {
-  /*cursor: pointer;*/
+  cursor: default;
   margin: 0 20px;
   padding: 10px;
+}
+
+section {
+  padding: 50px;
+}
+
+section h2 {
+  margin-top: 0;
 }
 
 .hero-image {
@@ -46,4 +54,18 @@ nav li {
 .intro p {
   font-size: 18px;
   margin: 2px 0;
+}
+
+.bio-content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.bio-content > * {
+  margin: 20px;
+}
+
+.bio-image {
+  width: 35%;
 }
