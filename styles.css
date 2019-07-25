@@ -8,7 +8,7 @@ html, body, h1, footer {
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
   font-family: 'Literata', serif;
 }
 
@@ -69,3 +69,26 @@ section h2 {
 .bio-image {
   width: 35%;
 }
+
+.experience article {
+  margin-top: 50px;
+}
+
+.experience article h3 {
+  margin-bottom: 5px;
+}
+
+.article-info {
+  display: flex;
+}
+
+.article-info h4 {
+  margin: 0;
+}
+
+.article-info h4:first-child {
+  border-right: 1px solid black;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
