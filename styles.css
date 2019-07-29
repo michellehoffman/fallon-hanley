@@ -27,8 +27,8 @@ nav ul {
 
 nav li {
   cursor: default;
-  margin: 0 10px;
-  padding: 10px 20px;
+  margin: 0 20px;
+  padding: 10px;
 }
 
 main {
@@ -105,18 +105,6 @@ input[type="submit"] {
   margin: 2px 0;
 }
 
-section.bio {
-  background-color: #2e2f30;
-  color: #979ca1;
-}
-
-section.bio h2 {
-  border-bottom: 1px solid;
-  left: 65%;
-  padding-bottom: 5px;
-  position: absolute;
-}
-
 .bio-content {
   align-items: center;
   display: flex;
@@ -128,13 +116,7 @@ section.bio h2 {
 }
 
 .bio-image {
-  border-radius: 5px;
-  box-shadow: 1px 1px 15px 1px #111111;
   width: 35%;
-}
-
-.bio-text {
-  width: 50%;
 }
 
 .experience article {
