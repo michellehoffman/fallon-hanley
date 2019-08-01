@@ -61,6 +61,7 @@ label {
 
 input:not([type="submit"]),
 textarea {
+  background: transparent;
   border: 1px solid darkgrey;
   border-radius: 7px;
   color: #5B605E;
@@ -69,6 +70,12 @@ textarea {
   outline: none;
   padding: 10px;
   width: 100%;
+}
+
+input:not([type="submit"]):focus,
+textarea:focus {
+  border-color: deepskyblue;
+  transition: border-color 0.5s;
 }
 
 textarea {
@@ -84,11 +91,18 @@ input[type="submit"] {
   cursor: pointer;
   font-size: 16px;
   padding: 10px 30px;
+  transition: box-shadow 0.5s;
   width: 100%;
 }
 
+input[type="submit"]:hover {
+  box-shadow: 1px 1px 2px #666;
+  transition: box-shadow 0.3s;
+}
+
 .hero-image {
-  background-image: url('hero-image.jpeg');
+  background-image: url('https://images.unsplash.com/photo-1418743342338-5ee869c68e95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80');
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 80vh;
