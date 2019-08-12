@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Fallon Hanley</title>
-  <!-- <link rel="stylesheet" type="text/css" href="reset.css"> -->
   <link rel="stylesheet" type="text/css" href="styles.css">
   <script src="https://kit.fontawesome.com/63daf4012b.js"></script>
   <script
@@ -118,20 +117,23 @@
             <p>Louisville, Colorado, USA</p>
           </article>
         </div>
-        <form>
+        <form id="contact-form">
           <div class="field">
             <label for="contact-name">Your Name</label>
             <input type="text" name="contact-name" id="contact-name">
+            <div class="error-container"></div>
           </div>
           <div class="field">
             <label for="contact-email">Email Address</label>
             <input type="email" name="contact-email" id="contact-email">
+            <div class="error-container"></div>
           </div>
           <div class="field">
             <label for="contact-message">Message</label>
             <textarea name="contact-message" id="contact-message"></textarea>
+            <div class="error-container"></div>
           </div>
-          <input type="submit" value="Submit">
+          <input type="submit" value="Submit" disabled="true">
         </form>
       </div>
     </section>

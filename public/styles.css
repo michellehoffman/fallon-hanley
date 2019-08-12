@@ -100,6 +100,11 @@ input[type="submit"]:hover {
   transition: box-shadow 0.3s;
 }
 
+input[type="submit"]:disabled {
+  background-color: #00000080;
+  cursor: not-allowed;
+}
+
 .hero-image {
   background-image: url('https://images.unsplash.com/photo-1418743342338-5ee869c68e95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80');
   background-position: center;
@@ -243,4 +248,24 @@ section.experience {
 .focus {
   color: deepskyblue;
   transition: color 0.5s;
+}
+
+.error-container {
+  align-items: center;
+  color: red;
+  display: flex;
+  font-size: 12px;
+}
+
+.error-container > * {
+  margin: -10px 5px 10px 0;
+}
+
+.invalid label {
+  color: red;
+}
+
+.invalid input,
+.invalid textarea {
+  border-color: red !important;
 }
