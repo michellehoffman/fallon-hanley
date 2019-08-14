@@ -117,20 +117,20 @@
             <p>Louisville, Colorado, USA</p>
           </article>
         </div>
-        <form id="contact-form">
+        <form id="contact-form" action="/contact" method="POST">
           <div class="field">
             <label for="contact-name">Your Name</label>
-            <input type="text" name="contact-name" id="contact-name">
+            <input type="text" name="contact-name" id="contact-name" required="true">
             <div class="error-container"></div>
           </div>
           <div class="field">
             <label for="contact-email">Email Address</label>
-            <input type="email" name="contact-email" id="contact-email">
+            <input type="email" name="contact-email" id="contact-email" required="true">
             <div class="error-container"></div>
           </div>
           <div class="field">
             <label for="contact-message">Message</label>
-            <textarea name="contact-message" id="contact-message"></textarea>
+            <textarea name="contact-message" id="contact-message" required="true"></textarea>
             <div class="error-container"></div>
           </div>
           <input type="submit" value="Submit" disabled="true">
