@@ -3,9 +3,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var nodeMailer = require('nodemailer');
 var { google } = require('googleapis');
+const { check, validationResult } = require('express-validator');
 var OAuth2 = google.auth.OAuth2;
 var app = express();
-
 app.set('port', process.env.PORT || 3000);
 
 app.use(express.static('public'));
@@ -21,7 +21,19 @@ oauth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 var accessToken = oauth2Client.getAccessToken();
 
 
-app.post('/contact', (req, res) => {
+app.post('/contact', [
+  check('contact-name')
+    .not().isEmpty()
+    .trim()
+    .escape(),
+  check('contact-email')
+    .isEmail()
+    .normalizeEmail(),
+  check('contact-message')
+    .not().isEmpty()
+    .trim()
+    .escape()
+  ], (req, res) => {
 
   var transporter = nodeMailer.createTransport({
     service: 'gmail',
@@ -51,11 +63,7 @@ app.post('/contact', (req, res) => {
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log(error);
-    }
-
-    console.log('Message %s sent: %s', info.messageId, info.response);
+    error ? console.log(error): console.log('Message %s sent: %s', info.messageId, info.response);
   });
 
   res.writeHead(301, { Location: 'index.html' });
