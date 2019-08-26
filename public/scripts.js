@@ -10,6 +10,7 @@ $('.contact textarea').on('input', tryEnableSubmit);
 $('.contact input').on('input', tryRemoveError);
 $('.contact textarea').on('input', tryRemoveError);
 $('#contact-email').on('blur', validateEmail);
+$('#contact-form').on('submit', handleSubmit);
 
 function scroll() {
   var section = this.id;
@@ -109,3 +110,59 @@ function checkEmpty() {
 
   empty ? displayError(this, 'Input must have a value') : removeError(this);
 }
+
+async function apiCall(url, init = { method: 'GET' }) {
+  try {
+    var response = await fetch(url, init)
+    var results = await response.json()
+
+    return results
+  } catch(error) {
+    return error
+  }
+}
+
+async function sendEmail(data) {
+  var init = {
+    method: 'POST',
+    headers: { 
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }
+  var results = await apiCall('/contact', init)
+
+  return results
+}
+
+function handleError(errors) {
+  errors.map(error => {
+    var { param, msg } = error
+    var input = `#contact-${ param }`
+
+    displayError(input, msg)
+  })
+}
+
+function handleSuccess() {
+  var submitButton = $('input[type="submit"]')
+  submitButton.val('Sent!')
+}
+
+async function handleSubmit(e) {
+  e.preventDefault()
+  var submitButton = $('input[type="submit"]')
+
+  submitButton.prop('disabled', true)
+  submitButton.val('Sending...')
+
+  var name = $(this).find('#contact-name').val();
+  var email = $(this).find('#contact-email').val();
+  var message = $(this).find('#contact-message').val();
+  var _csrf  = $(this).find('input[name="_csrf"]').val();
+  var results = await sendEmail({ name, email, message, _csrf });
+  var { error } = results;
+
+  error ? handleError(error) : handleSuccess();
+}
+
