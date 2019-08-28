@@ -14,12 +14,12 @@ $('#contact-form').on('submit', handleSubmit);
 
 function scroll() {
   var section = this.id;
-  scrollTo(section);
+  scrollTo(`section.${section}`);
 }
 
 function scrollTo(name) {
   $('html, body').animate({
-    scrollTop: ($(`section.${ name }`).offset().top)
+    scrollTop: ($(name).offset().top)
   });
 }
 
@@ -42,6 +42,17 @@ function displayError(input, message) {
   `);
 
   $(input).parents('.field').addClass('invalid');
+}
+
+function displayMessage(status, message) {
+  $('.message-container').html(`
+    <div class="alert alert-${ status }">
+      <p>${ message }</p>
+    </div>
+  `)
+
+  scrollTo('.message-container')
+  $('input[type="submit"]').val('Submit')
 }
 
 function removeError(input) {
@@ -136,33 +147,39 @@ async function sendEmail(data) {
 }
 
 function handleError(errors) {
-  errors.map(error => {
-    var { param, msg } = error
-    var input = `#contact-${ param }`
+  if (typeof errors === 'array') {
+    errors.map(error => {
+      var { param, msg } = error
+      var input = `#contact-${ param }`
 
-    displayError(input, msg)
-  })
+      displayError(input, msg)
+    })
+  } else {
+    displayMessage('error', errors)
+  }
 }
 
-function handleSuccess() {
+function handleSuccess(message) {
   var submitButton = $('input[type="submit"]')
   submitButton.val('Sent!')
+
+  displayMessage('success', message)
 }
 
 async function handleSubmit(e) {
   e.preventDefault()
-  var submitButton = $('input[type="submit"]')
 
+  var submitButton = $('input[type="submit"]')
   submitButton.prop('disabled', true)
   submitButton.val('Sending...')
 
-  var name = $(this).find('#contact-name').val();
-  var email = $(this).find('#contact-email').val();
-  var message = $(this).find('#contact-message').val();
-  var _csrf  = $(this).find('input[name="_csrf"]').val();
-  var results = await sendEmail({ name, email, message, _csrf });
-  var { error } = results;
+  var name = $(this).find('#contact-name').val()
+  var email = $(this).find('#contact-email').val()
+  var message = $(this).find('#contact-message').val()
+  var _csrf  = $(this).find('input[name="_csrf"]').val()
+  var results = await sendEmail({ name, email, message, _csrf })
+  var { error, message } = results
 
-  error ? handleError(error) : handleSuccess();
+  error ? handleError(error) : handleSuccess(message)
 }
 

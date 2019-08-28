@@ -269,3 +269,26 @@ section.experience {
 .invalid textarea {
   border-color: red !important;
 }
+
+.alert {
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  padding: 15px 20px;
+}
+
+.alert p {
+  margin: 0;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.alert-error {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
