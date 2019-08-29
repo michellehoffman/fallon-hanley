@@ -5,6 +5,7 @@ var nodeMailer = require('nodemailer');
 var csurf = require('csurf');
 var cookieParser = require('cookie-parser');
 var helmet = require('helmet');
+var axios = require('axios');
 var { google } = require('googleapis');
 var { check, validationResult, matchedData } = require('express-validator');
 
@@ -30,6 +31,30 @@ var oauth2Client = new OAuth2(
 oauth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 var accessToken = oauth2Client.getAccessToken();
  
+var validateRecaptcha = async (request, response, next) => {
+  var { recaptcha } = request.body;
+
+  axios({
+    method: 'POST',
+    url: 'https://www.google.com/recaptcha/api/siteverify',
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    data: `secret=${ process.env.RECAPTCHA_SECRET }&response=${ recaptcha }`
+  })
+  .then(result => {
+    var { success } = result.data
+
+    if (success) {
+      next()
+    } else {
+      console.log('Recaptcha error: ', result.data['error-codes'])
+      response.status(422).send({ error: 'Recaptcha could not be verified.' })
+    }
+  })
+  .catch(error => {
+    response.status(500).send({ error: 'There was an error with Recaptcha.'})
+  })
+}
+
 var validation = [
   check('name')
     .not().isEmpty()
@@ -52,7 +77,7 @@ app.get('/', (request, response) => {
   response.render('index', { csrfToken: request.csrfToken() });
 })
 
-app.post('/contact', validation, (request, response) => {
+app.post('/contact', validateRecaptcha, validation, (request, response) => {
   var result = validationResult(request);
   if (result.errors.length) {
     response.status(422).send({ error: result.errors })

@@ -104,8 +104,8 @@ function disableSubmit() {
 
 function tryEnableSubmit() {
   var inputs = $('.contact input').not(':input[type=submit]');
-  var textareas = $('.contact textarea');
-  var required = [...inputs, ...textareas];
+  var textarea = $('#contact-message');
+  var required = [...inputs, ...textarea];
   var complete = required.every((input) => $(input).val() !== '');
   var validEmail = testEmail($('#contact-email').val());
 
@@ -177,7 +177,8 @@ async function handleSubmit(e) {
   var email = $(this).find('#contact-email').val()
   var message = $(this).find('#contact-message').val()
   var _csrf  = $(this).find('input[name="_csrf"]').val()
-  var results = await sendEmail({ name, email, message, _csrf })
+  var recaptcha = $('#g-recaptcha-response').val()
+  var results = await sendEmail({ name, email, message, _csrf, recaptcha })
   var { error, message } = results
 
   error ? handleError(error) : handleSuccess(message)
