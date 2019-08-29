@@ -8,6 +8,18 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    var recaptchaVerifyCallback = function() {
+      document.getElementById('submit').disabled = false;
+    }
+
+    var recaptchaLoadCallback = function() {
+      grecaptcha.render('g-recaptcha', {
+        'sitekey': '6Ld7DrIUAAAAAMbuOeSAoW_9PvBhf4x1DbuMGypG',
+        'callback': recaptchaVerifyCallback
+      });
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -135,8 +147,10 @@
             <div class="error-container"></div>
           </div>
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-          <input type="submit" value="Submit" disabled="true">
+          <div id="g-recaptcha"></div>
+          <input type="submit" id="submit" value="Submit" disabled="true">
         </form>
+        <script src='https://www.google.com/recaptcha/api.js?onload=recaptchaLoadCallback&render=explicit' async defer></script>
       </div>
     </section>
   </main>
