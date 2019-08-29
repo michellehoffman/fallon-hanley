@@ -104,8 +104,8 @@ function disableSubmit() {
 
 function tryEnableSubmit() {
   var inputs = $('.contact input').not(':input[type=submit]');
-  var textareas = $('.contact textarea');
-  var required = [...inputs, ...textareas];
+  var textarea = $('#contact-message');
+  var required = [...inputs, ...textarea];
   var complete = required.every((input) => $(input).val() !== '');
   var validEmail = testEmail($('#contact-email').val());
 
