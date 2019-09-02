@@ -1,4 +1,4 @@
-$('nav li').on('click', scroll);
+$('nav li').on('click', scrollNav);
 $('.contact input').on('focus', focusLabel);
 $('.contact textarea').on('focus', focusLabel);
 $('.contact input').on('blur', unfocusLabel);
@@ -9,17 +9,25 @@ $('.contact input').on('input', tryEnableSubmit);
 $('.contact textarea').on('input', tryEnableSubmit);
 $('.contact input').on('input', tryRemoveError);
 $('.contact textarea').on('input', tryRemoveError);
+$('#menu-icon').on('click', displayNav);
 $('#contact-email').on('blur', validateEmail);
 $('#contact-form').on('submit', handleSubmit);
 
-function scroll() {
+function scrollNav() {
   var section = this.id;
-  scrollTo(`section.${section}`);
+  var ul = $(this).parents('ul');
+
+  if (ul.hasClass('show')) {
+    $('nav ul').removeClass('show')
+    scrollTo(`section.${section}`, $('nav').outerHeight())
+  } else {
+    scrollTo(`section.${section}`)
+  }
 }
 
-function scrollTo(name) {
+function scrollTo(name, offset = 0) {
   $('html, body').animate({
-    scrollTop: ($(name).offset().top)
+    scrollTop: ($(name).offset().top + 1 - offset)
   });
 }
 
@@ -182,4 +190,8 @@ async function handleSubmit(e) {
   var { error, message } = results
 
   error ? handleError(error) : handleSuccess(message)
+}
+
+function displayNav() {
+  $('nav ul').toggleClass('show')
 }
