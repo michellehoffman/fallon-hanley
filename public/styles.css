@@ -18,6 +18,7 @@ nav {
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 nav ul {
@@ -52,6 +53,7 @@ a {
 }
 
 form {
+  min-width: 325px;
   width: 30%;
 }
 
@@ -228,6 +230,7 @@ section.experience {
 
 .contact-content {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
 }
 
@@ -235,7 +238,7 @@ section.experience {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-right: 30px;
+  margin-right: 40px;
   padding: 20px;
 }
 
@@ -329,5 +332,12 @@ section.experience {
 
   .intro {
     display: none;
+  }
+}
+
+@media screen and (max-width: 723px) {
+  .contact-info {
+    margin-bottom: 30px;
+    margin-left: 40px;
   }
 }
