@@ -14,6 +14,7 @@ h1, h2, h3 {
 }
 
 nav {
+  padding: 16px;
   position: absolute;
   top: 0;
   width: 100%;
@@ -23,6 +24,7 @@ nav ul {
   display: flex;
   justify-content: flex-end;
   list-style: none;
+  margin: 0;
 }
 
 nav li {
@@ -103,6 +105,10 @@ input[type="submit"]:hover {
 input[type="submit"]:disabled {
   background-color: #00000080;
   cursor: not-allowed;
+}
+
+.navbar {
+  display: none;
 }
 
 .hero-image {
@@ -294,4 +300,39 @@ section.experience {
   background-color: #f8d7da;
   border-color: #f5c6cb;
   color: #721c24;
+}
+
+@media screen and (min-width: 951px) {
+  nav ul {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  nav {
+    background-color: #141414;
+    color: #c5c5c5;
+    position: fixed;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  nav ul {
+    align-items: center;
+    display: none;
+    flex-direction: column;
+    margin-top: 20px;
+    transition: display 1s,
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .intro {
+    display: none;
+  }
 }
