@@ -130,9 +130,7 @@ section.bio {
 }
 
 section.bio h2 {
-  border-bottom: 1px solid;
   left: 65%;
-  padding-bottom: 5px;
   position: absolute;
 }
 
@@ -214,6 +212,11 @@ section.experience {
   border-right: 1px solid black;
   margin-right: 10px;
   padding-right: 10px;
+}
+
+.company {
+  background-color: #00000090;
+  color: white;
 }
 
 .contact-content {
