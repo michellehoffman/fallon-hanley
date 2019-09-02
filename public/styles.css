@@ -26,6 +26,7 @@ nav ul {
   justify-content: flex-end;
   list-style: none;
   margin: 0;
+  padding-left: 0;
 }
 
 nav li {
@@ -53,7 +54,7 @@ a {
 }
 
 form {
-  min-width: 325px;
+  min-width: 300px;
   width: 30%;
 }
 
@@ -171,8 +172,7 @@ section.experience {
   display: flex;
   margin: auto ;
   margin-bottom: 30px;
-  min-width: 325px;
-  width: 40%;
+  width: 45%;
 }
 
 .experience article > .experience-desc {
@@ -339,5 +339,13 @@ section.experience {
   .contact-info {
     margin-bottom: 30px;
     margin-left: 40px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .experience article {
+    width: 95%;
   }
 }
