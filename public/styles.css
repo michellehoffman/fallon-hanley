@@ -169,10 +169,11 @@ section.experience {
   display: flex;
   margin: auto ;
   margin-bottom: 30px;
+  min-width: 325px;
   width: 40%;
 }
 
-.experience article > * {
+.experience article > .experience-desc {
   padding-left: 30px;
 }
 
