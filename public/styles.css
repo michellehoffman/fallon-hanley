@@ -54,7 +54,7 @@ a {
 }
 
 form {
-  min-width: 300px;
+  min-width: 275px;
   width: 30%;
 }
 
@@ -139,13 +139,13 @@ section.bio {
 }
 
 section.bio h2 {
-  left: 65%;
-  position: absolute;
+  text-align: center;
 }
 
 .bio-content {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -156,6 +156,7 @@ section.bio h2 {
 .bio-image {
   border-radius: 5px;
   box-shadow: 1px 1px 15px 1px #111111;
+  min-width: 275px;
   width: 35%;
 }
 
@@ -323,7 +324,6 @@ section.experience {
     display: none;
     flex-direction: column;
     margin-top: 20px;
-    transition: display 1s,
   }
 
   nav ul.show {
@@ -332,6 +332,16 @@ section.experience {
 
   .intro {
     display: none;
+  }
+}
+
+@media screen and (max-width: 859px) {
+  .bio-image {
+    margin-bottom: 25px;
+  }
+
+  .bio-text {
+    width: 100%;
   }
 }
 
@@ -347,5 +357,11 @@ section.experience {
 
   .experience article {
     width: 95%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  section {
+    padding: 50px 30px;
   }
 }
