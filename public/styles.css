@@ -14,6 +14,8 @@ h1, h2, h3 {
 }
 
 nav {
+  background-color: #141414;
+  color: #c5c5c5;
   padding: 16px;
   position: absolute;
   top: 0;
@@ -30,9 +32,15 @@ nav ul {
 }
 
 nav li {
-  cursor: default;
+  cursor: pointer;
   margin: 0 10px;
   padding: 10px 20px;
+}
+
+nav li:hover {
+  background: #ffffff15;
+  border-radius: 2px;
+  color: white;
 }
 
 main {
@@ -115,17 +123,23 @@ input[type="submit"]:disabled {
 }
 
 .hero-image {
+  align-items: center;
   background-image: url('https://images.unsplash.com/photo-1418743342338-5ee869c68e95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
   height: 90vh;
+  justify-content: center;
   width: 100%;
 }
 
 .intro {
+  background: #00000099;
+  border-radius: 4px;
+  color: lightgray;
   margin-left: 10px;
-  padding: 10px;
+  padding: 40px;
 }
 
 .intro h1 {
@@ -161,7 +175,7 @@ section.bio {
 }
 
 .bio-text {
-  width: 50%;
+  width: 40%;
 }
 
 section.experience {
