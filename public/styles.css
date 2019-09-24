@@ -168,7 +168,7 @@ section.bio {
 }
 
 .bio-image {
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow: 1px 1px 15px 1px #111111;
   min-width: 275px;
   width: 25%;
@@ -224,8 +224,13 @@ section.experience {
   margin-top: 0;
 }
 
+.experience-desc {
+  width: 100%;
+}
+
 .experience-info {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -235,6 +240,14 @@ section.experience {
 
 .experience-info h4:first-child {
   margin-right: 10px;
+}
+
+.experience-info h4:last-child {
+  font-weight: 100;
+}
+
+.experience-info.no-company {
+  justify-content: flex-end;
 }
 
 .company {
@@ -346,6 +359,10 @@ section.experience {
   .intro {
     display: none;
   }
+
+  .experience article {
+    width: 95%;
+  }
 }
 
 @media screen and (max-width: 859px) {
@@ -355,7 +372,7 @@ section.experience {
 
   .bio-text {
     width: 100%;
-  }
+  }  
 }
 
 @media screen and (max-width: 723px) {
@@ -366,10 +383,6 @@ section.experience {
 
   form {
     width: 100%;
-  }
-
-  .experience article {
-    width: 95%;
   }
 }
 
