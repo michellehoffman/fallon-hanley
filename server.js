@@ -21,6 +21,7 @@ app.use(bodyParser.json());
 app.use(helmet());
 app.use(cookieParser());
 app.use(csrfMiddleware);
+app.use('/public/resume.pdf',express.static(__dirname + '/public/resume.pdf'))
 
 var OAuth2 = google.auth.OAuth2;
 var oauth2Client = new OAuth2(

@@ -255,6 +255,20 @@ section.experience {
   color: white;
 }
 
+.downloads {
+  margin-top: 90px;
+  text-align: right;
+}
+
+.resume-download {
+  background: #5B605E;
+  border-radius: 3px;
+  color: lightgray;
+  font-size: 16px;
+  font-weight: 900;
+  padding: 10px 20px;
+}
+
 .contact-content {
   display: flex;
   flex-wrap: wrap;
@@ -375,7 +389,7 @@ section.experience {
   }  
 }
 
-@media screen and (max-width: 723px) {
+@media screen and (max-width: 801px) {
   .contact-info {
     margin-bottom: 30px;
     margin-left: 40px;
