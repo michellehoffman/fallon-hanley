@@ -103,7 +103,7 @@ app.post('/contact', validateRecaptcha, validation, (request, response) => {
     from: data.email,
     subject: 'Contact Form Message',
     html: `
-      <p>You have a message from the contact form</p>
+      <p>You have a message from the contact form:</p>
       <div style="margin-left: 20px">
         <p><strong>Name:</strong> ${ data.name }</p>
         <p><strong>Email:</strong> ${ data.email }</p>

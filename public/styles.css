@@ -124,7 +124,7 @@ input[type="submit"]:disabled {
 
 .hero-image {
   align-items: center;
-  background-image: url('https://images.unsplash.com/photo-1418743342338-5ee869c68e95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80');
+  background-image: url('./images/hero-image.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -135,10 +135,9 @@ input[type="submit"]:disabled {
 }
 
 .intro {
-  background: #00000099;
-  border-radius: 4px;
-  color: lightgray;
-  margin-left: 10px;
+  background: #000000db;
+  border-radius: 3px;
+  color: white;
   padding: 40px;
 }
 
