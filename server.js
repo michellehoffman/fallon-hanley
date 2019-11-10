@@ -90,7 +90,7 @@ app.post('/contact', validateRecaptcha, validation, (request, response) => {
     service: 'gmail',
     auth: {
       type: 'OAuth2',
-      user: 'hoffman.michelle.e@gmail.com',
+      user: 'fallon4208@gmail.com',
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       refreshToken: process.env.REFRESH_TOKEN,
@@ -99,7 +99,7 @@ app.post('/contact', validateRecaptcha, validation, (request, response) => {
   });
 
   var mailOptions = {
-    to: 'hoffman.michelle.e@gmail.com',
+    to: 'fallon4208@gmail.com',
     from: data.email,
     subject: 'Contact Form Message',
     html: `
