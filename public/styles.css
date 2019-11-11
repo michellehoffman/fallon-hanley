@@ -14,8 +14,11 @@ h1, h2, h3 {
 }
 
 nav {
+  align-items: center;
   background-color: #141414;
   color: #c5c5c5;
+  display: flex;
+  justify-content: space-between;
   padding: 16px;
   position: absolute;
   top: 0;
@@ -118,8 +121,12 @@ input[type="submit"]:disabled {
   cursor: not-allowed;
 }
 
-.navbar {
+.navbar i {
   display: none;
+}
+
+.navbar .subtitle {
+  margin: 0;
 }
 
 .hero-image {
@@ -138,6 +145,7 @@ input[type="submit"]:disabled {
   background: #000000db;
   border-radius: 3px;
   color: white;
+  display: none;
   padding: 40px;
 }
 
@@ -370,23 +378,34 @@ section.experience {
   nav {
     background-color: #141414;
     color: #c5c5c5;
-    position: fixed;
-  }
-
-  .navbar {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    position: fixed;
   }
 
   nav ul {
     align-items: center;
     display: none;
-    flex-direction: column;
     margin-top: 20px;
   }
 
   nav ul.show {
     display: flex;
+    flex-direction: column;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%
+  }
+
+  .navbar i {
+    display: inline;
+  }
+
+  .navbar .subtitle {
+    display: none;
   }
 
   .intro {
