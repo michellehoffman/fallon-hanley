@@ -183,7 +183,7 @@ section.bio {
 }
 
 section.experience {
-  background-color: lightgrey;
+  background-color: #ebebeb;
   padding-bottom: 100px;
 }
 
@@ -254,22 +254,37 @@ section.experience {
   justify-content: flex-end;
 }
 
-.company {
-  background-color: #00000090;
-  color: white;
-}
-
 .downloads {
   margin-top: 90px;
   text-align: right;
 }
 
 .resume-download {
-  background: #5B605E;
+  background: #00000090;
   border-radius: 3px;
-  color: lightgray;
+  color: #ebebeb;
   font-size: 16px;
   font-weight: 900;
+  padding: 10px 20px;
+}
+
+.company {
+  background-color: #00000090;
+  color: white;
+}
+
+.company .links {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.company a {
+  background-color: #fff;
+  border-radius: 3px;
+  color: #00000090;
+  font-size: 16px;
+  font-weight: 900;
+  margin: 15px 20px 0 0;
   padding: 10px 20px;
 }
 
@@ -396,7 +411,7 @@ section.experience {
 @media screen and (max-width: 987px) {
   .contact-info {
     margin-bottom: 30px;
-    margin-left: 40px;
+    margin-right: 0;
   }
 
   form {
