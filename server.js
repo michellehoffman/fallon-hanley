@@ -90,7 +90,7 @@ app.post('/contact', validateRecaptcha, validation, (request, response) => {
     service: 'gmail',
     auth: {
       type: 'OAuth2',
-      user: 'fallon4208@gmail.com',
+      user: 'hoffman.michelle.e@gmail.com',
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       refreshToken: process.env.REFRESH_TOKEN,

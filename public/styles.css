@@ -63,7 +63,7 @@ a {
 
 form {
   min-width: 275px;
-  width: 30%;
+  width: 40%;
 }
 
 label {
@@ -150,6 +150,11 @@ input[type="submit"]:disabled {
   margin: 2px 0;
 }
 
+.container {
+  margin: auto;
+  width: 80%;
+}
+
 section.bio {
   background-color: #2e2f30;
   color: #979ca1;
@@ -174,7 +179,7 @@ section.bio {
 }
 
 .bio-text {
-  width: 40%;
+  width: 60%;
 }
 
 section.experience {
@@ -186,7 +191,7 @@ section.experience {
   display: flex;
   margin: auto ;
   margin-bottom: 30px;
-  width: 45%;
+  width: 60%;
 }
 
 .experience article > .experience-desc {
@@ -378,7 +383,7 @@ section.experience {
   }
 }
 
-@media screen and (max-width: 859px) {
+@media screen and (max-width: 1209px) {
   .bio-image {
     margin-bottom: 25px;
   }
@@ -388,7 +393,7 @@ section.experience {
   }  
 }
 
-@media screen and (max-width: 801px) {
+@media screen and (max-width: 987px) {
   .contact-info {
     margin-bottom: 30px;
     margin-left: 40px;
