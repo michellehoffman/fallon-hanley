@@ -404,6 +404,12 @@ section.experience {
   }
 }
 
+@media screen and (max-width: 700px) {
+  .container {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 375px) {
   section {
     padding: 50px 30px;
