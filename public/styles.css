@@ -51,7 +51,7 @@ main {
 }
 
 section {
-  padding: 50px;
+  padding: 100px 50px;
 }
 
 section h2 {
@@ -123,11 +123,6 @@ input[type="submit"]:disabled {
   cursor: not-allowed;
 }
 
-/*.company a:hover {
-  box-shadow: 1px 1px 5px #333;
-  transition: box-shadow 0.3s;
-}
-*/
 .downloads a,
 .company .links a {
   transition: box-shadow 0.5s;
@@ -192,15 +187,16 @@ section.bio {
 }
 
 .bio-image {
-  border: 2px solid grey;
-  border-radius: 3px;
+  background-image: url('./images/headshot-right.jpg');
+  background-size: cover;
+  border-radius: 150px;
   box-shadow: 1px 1px 15px 1px #111111;
-  min-width: 275px;
-  width: 25%;
+  height: 300px;
+  width: 300px;
 }
 
 .bio-text {
-  width: 60%;
+  width: 50%;
 }
 
 section.experience {
